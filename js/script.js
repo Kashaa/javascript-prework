@@ -1,13 +1,30 @@
-/** BUTTONS */
-var buttonPaper, buttonRock, buttonScissors, buttonClear;
+/** ZDEFINIOWANIE PRZYCISKÓW */
+
+let buttonPaper, buttonRock, buttonScissors, buttonClear;
 
 buttonClear = document.getElementById('button-clear');
 buttonRock = document.getElementById('button-rock');
 buttonPaper = document.getElementById('button-paper');
 buttonScissors = document.getElementById('button-scissors'); 
 
-/** RULES */
-var argComputerMove, argMoveId, argPlayerMove, computerMove, playerMove, randomNumber;
+buttonClear.addEventListener('click', function(){ 
+  clearMessages();
+  console.log('Przycisk Wyczyść został kliknięty');
+});
+buttonRock.addEventListener('click', function(){ 
+  playGame('1'); 
+});
+buttonPaper.addEventListener('click', function(){ 
+  playGame('2'); 
+});
+buttonScissors.addEventListener('click', function(){ 
+  playGame('3'); 
+});
+
+
+/** PRZYPISANIE RUCHU DO NUMERU */
+ /** var argMoveId;
+ Czy powyższa linijka jest potrzebna? Przecież to argument funkcji, a nie zmienna? */
 
 function getMoveName(argMoveId) {
   console.log('Wywołano funkcję getMoveName z argumentem: ' + argMoveId);
@@ -23,30 +40,22 @@ function getMoveName(argMoveId) {
   }
 }
 
+
+/** ODCZYTANIE RUCHU GRACZA, LOSOWANIE LICZBY PRZEZ SKRYPT */
+
 function playGame (playerMoveId) {
-  playerMove = getMoveName(playerMoveId);
+  const playerMove = getMoveName(playerMoveId);
   console.log('Ruch gracza to: ' + playerMove);
-  randomNumber = Math.floor(Math.random() * 3 + 1);
+  const randomNumber = Math.floor(Math.random() * 3 + 1);
   console.log('Wylosowana liczba to: ' + randomNumber);
-  computerMove = getMoveName(randomNumber);
+  const computerMove = getMoveName(randomNumber);
   console.log('Ruch komputera to: ' + computerMove);
   displayResult(playerMove, computerMove);
 }
 
-buttonClear.addEventListener('click', function()
-{ 
-  clearMessages();
-  console.log('Przycisk Wyczyść został kliknięty');
-});
-buttonRock.addEventListener('click', function(){ 
-  playGame('1'); 
-});
-buttonPaper.addEventListener('click', function(){ 
-  playGame('2'); 
-});
-buttonScissors.addEventListener('click', function(){ 
-  playGame('3'); 
-});
+/** WYŚWIETLENIE WYNIKU */
+/** var argComputerMove, argPlayerMove;
+ Czy powyższa linijka jest potrzebna? Przecież to są argumenty funkcji, a nie zmienne? */
 
 function displayResult(argPlayerMove, argComputerMove) {
   printMessage('Wybrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
