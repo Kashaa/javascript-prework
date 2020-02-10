@@ -1,11 +1,9 @@
 /** ZDEFINIOWANIE PRZYCISKÓW */
 
-let buttonPaper, buttonRock, buttonScissors, buttonClear;
-
-buttonClear = document.getElementById('button-clear');
-buttonRock = document.getElementById('button-rock');
-buttonPaper = document.getElementById('button-paper');
-buttonScissors = document.getElementById('button-scissors'); 
+const buttonClear = document.getElementById('button-clear');
+const buttonRock = document.getElementById('button-rock');
+const buttonPaper = document.getElementById('button-paper');
+const buttonScissors = document.getElementById('button-scissors'); 
 
 buttonClear.addEventListener('click', function(){ 
   clearMessages();
@@ -23,8 +21,6 @@ buttonScissors.addEventListener('click', function(){
 
 
 /** PRZYPISANIE RUCHU DO NUMERU */
- /** var argMoveId;
- Czy powyższa linijka jest potrzebna? Przecież to argument funkcji, a nie zmienna? */
 
 function getMoveName(argMoveId) {
   console.log('Wywołano funkcję getMoveName z argumentem: ' + argMoveId);
@@ -54,8 +50,6 @@ function playGame (playerMoveId) {
 }
 
 /** WYŚWIETLENIE WYNIKU */
-/** var argComputerMove, argPlayerMove;
- Czy powyższa linijka jest potrzebna? Przecież to są argumenty funkcji, a nie zmienne? */
 
 function displayResult(argPlayerMove, argComputerMove) {
   printMessage('Wybrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
